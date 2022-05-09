@@ -27,8 +27,12 @@ public:
     void setValue(const Type& type);
     Type getValue();
     const Type& getValue() const;
-    std::vector< TreeNode >& getChildren();
-    const std::vector< TreeNode >& getChildren() const;
+    std::vector< TreeNode >& getChildren(){
+        return this->children;
+    }
+    const std::vector< TreeNode >& getChildren() const{
+        return this->children;
+    }
     //void setParent(TreeNode * parent);
     //Type getParent();
 };
@@ -40,37 +44,37 @@ TreeNode<Type> :: TreeNode(){
 
 template< class Type >
 TreeNode<Type> :: TreeNode(const Type& type){
-    //Default constructor
+    this->type = type;
 }
 
 template< class Type >
 void TreeNode<Type> :: addChild(const Type& type){
-    //Default constructor
-}
+    this->children.push_back( lstdTreeNode( type ) );}
 
 template< class Type >
 void TreeNode<Type> :: delChild(const Type& type){
-    //Default constructor
+    for ( int i = 0 ; i < this->children.size() ; ++i )
+    {
+        if ( this->children.at(i).t == type )
+        {
+            this->children.erase( this->children.begin()+i );
+            return;
+        }
+    }
 }
 
 template< class Type >
 void TreeNode<Type> :: setValue(const Type& type){
-    //Default constructor
-}
+    this->type = type;}
 
 template< class Type >
 Type TreeNode<Type> :: getValue(){
-    //Default constructor
+    return this->type;
 }
 
 template< class Type >
 const Type& TreeNode<Type> :: getValue() const{
-    //Default constructor
-}
-
-template< class Type >
-std::vector< TreeNode >& TreeNode<Type> :: getChildren(){
-    //Default constructor
+    return this->type;
 }
 
 
