@@ -4,10 +4,12 @@
 #include <iterator>
 #include <vector>
 #include <algorithm>
+#include "Tree.h"
 
 using namespace std;
 
 int main() {
+
     cout << "Welcome to File Management System Simulation. "
                  "Enter a command or enter 'help' to see a list of commands." << std::endl;
 

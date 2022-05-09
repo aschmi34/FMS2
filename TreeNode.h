@@ -5,19 +5,83 @@
 #ifndef FMS2_TREENODE_H
 #define FMS2_TREENODE_H
 
-//forward declaration of class Tree
-template< typename NODETYPE > class Tree;
+#pragma once
+
+#include "Node.h"
+#include <vector>
+
 
 //TreeNode class template definition
-template< typename NODETYPE >
+template< class Type >
 class TreeNode
 {
-    freind class Tree< NODETYPE >;
+private:
+    Type type;
+    //TreeNode* parent;
+    std::vector< TreeNode > children;
 public:
-    //constructor
-    TreeNode( const NODETYPE &d)
-        : date(d)//tree node data
+    TreeNode();
+    TreeNode(const Type& type);
+    void addChild(const Type& type);
+    void delChild(const Type& type);
+    void setValue(const Type& type);
+    Type getValue();
+    const Type& getValue() const;
+    std::vector< TreeNode >& getChildren();
+    const std::vector< TreeNode >& getChildren() const;
+    //void setParent(TreeNode * parent);
+    //Type getParent();
 };
 
+template< class Type >
+TreeNode<Type> :: TreeNode(){
+    //Default constructor
+}
+
+template< class Type >
+TreeNode<Type> :: TreeNode(const Type& type){
+    //Default constructor
+}
+
+template< class Type >
+void TreeNode<Type> :: addChild(const Type& type){
+    //Default constructor
+}
+
+template< class Type >
+void TreeNode<Type> :: delChild(const Type& type){
+    //Default constructor
+}
+
+template< class Type >
+void TreeNode<Type> :: setValue(const Type& type){
+    //Default constructor
+}
+
+template< class Type >
+Type TreeNode<Type> :: getValue(){
+    //Default constructor
+}
+
+template< class Type >
+const Type& TreeNode<Type> :: getValue() const{
+    //Default constructor
+}
+
+template< class Type >
+std::vector< TreeNode >& TreeNode<Type> :: getChildren(){
+    //Default constructor
+}
+
+
+
 #endif //FMS2_TREENODE_H
+
+/*
+ * References:
+ *
+ * https://gist.github.com/pingpoli/eb564d6767e03243ea029ee479f914a3
+ * https://levelup.gitconnected.com/a-template-tree-class-in-c-7be9b4834e09
+ * https://www.youtube.com/watch?v=fAz_Y8IJkdg&t=313s
+ */
 
